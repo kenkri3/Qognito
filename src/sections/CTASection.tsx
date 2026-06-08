@@ -8,7 +8,7 @@ export default function CTASection({ onDemoClick }: CTASectionProps) {
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-500/10 rounded-full blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-cyan-500/10 rounded-full blur-[120px]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-purple-500/10 rounded-full blur-[100px]" />
       </div>
 
@@ -23,7 +23,7 @@ export default function CTASection({ onDemoClick }: CTASectionProps) {
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
           <button
             onClick={onDemoClick}
-            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-cyan-500/25 hover:-translate-y-0.5"
           >
             Book gratis demo
             <ArrowRight size={18} />

@@ -9,8 +9,8 @@ const navLinks = [
   { href: '/#faq', label: 'FAQ' },
 ]
 
-// BYTT DENNE URLEN NÅR DU FÅR WHITELABEL-LINKEN FRA SCALIQ
-const LOGIN_URL = 'https://app.scaliq.ai/login' // ← Oppdater til din whitelabel-URL
+// Whitelabel login URL for Qognito
+const LOGIN_URL = 'https://app.qognito.no'
 
 interface NavbarProps {
   onDemoClick?: () => void
@@ -53,13 +53,15 @@ export default function Navbar({ onDemoClick }: NavbarProps) {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">Q</span>
-            </div>
+          {/* Logo with image */}
+          <Link to="/" className="flex items-center gap-3 group">
+            <img
+              src="/logo.jpg"
+              alt="Qognito logo"
+              className="w-9 h-9 rounded-lg object-cover"
+            />
             <span className="text-xl font-bold text-white tracking-tight">
-              Qognito<span className="text-blue-400">.no</span>
+              Qognito<span className="text-cyan-400">.no</span>
             </span>
           </Link>
 
@@ -92,7 +94,7 @@ export default function Navbar({ onDemoClick }: NavbarProps) {
 
             <button
               onClick={onDemoClick}
-              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-all hover:shadow-lg hover:shadow-blue-500/25"
+              className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium rounded-lg transition-all hover:shadow-lg hover:shadow-cyan-500/25"
             >
               Book gratis demo
             </button>
@@ -136,7 +138,7 @@ export default function Navbar({ onDemoClick }: NavbarProps) {
 
             <button
               onClick={() => { onDemoClick?.(); setIsMobileOpen(false); }}
-              className="block w-full mt-3 px-5 py-3 bg-blue-600 text-white text-center font-medium rounded-lg"
+              className="block w-full mt-3 px-5 py-3 bg-cyan-600 text-white text-center font-medium rounded-lg"
             >
               Book gratis demo
             </button>

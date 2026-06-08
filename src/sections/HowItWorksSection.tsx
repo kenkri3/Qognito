@@ -33,7 +33,7 @@ export default function HowItWorksSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-3">Hvordan det fungerer</p>
+          <p className="text-sm font-medium text-cyan-400 uppercase tracking-wider mb-3">Hvordan det fungerer</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Fra idé til booket møte — uten at du løfter en finger
           </h2>
@@ -52,7 +52,7 @@ export default function HowItWorksSection() {
               
               <div className="relative p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all h-full">
                 <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-6 ${
-                  step.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
+                  step.color === 'blue' ? 'bg-cyan-500/10 text-cyan-400' :
                   step.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
                   'bg-emerald-500/10 text-emerald-400'
                 }`}>
@@ -60,7 +60,7 @@ export default function HowItWorksSection() {
                 </div>
                 
                 <div className={`text-xs font-bold mb-3 ${
-                  step.color === 'blue' ? 'text-blue-400' :
+                  step.color === 'blue' ? 'text-cyan-400' :
                   step.color === 'purple' ? 'text-purple-400' :
                   'text-emerald-400'
                 }`}>

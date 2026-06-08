@@ -12,10 +12,13 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onDemoClick }: HeroSectionProps) {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+    <section 
+      className="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden"
+      aria-label="Hovedseksjon - AI-drevet LinkedIn-salg for norske B2B-bedrifter"
+    >
       {/* Background effects */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] animate-pulse-glow" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse-glow" />
         <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-purple-500/10 rounded-full blur-[100px] animate-pulse-glow" style={{ animationDelay: '1.5s' }} />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/5 rounded-full blur-[150px]" />
       </div>
@@ -43,7 +46,8 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={onDemoClick}
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl transition-all hover:shadow-xl hover:shadow-cyan-500/25 hover:-translate-y-0.5"
+                aria-label="Book en gratis demo av Qognito"
               >
                 Book gratis demo
                 <ArrowRight size={18} />
@@ -51,17 +55,18 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
               <a
                 href="#hvordan"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-medium rounded-xl border border-white/10 transition-all"
+                aria-label="Se hvordan Qognito fungerer"
               >
                 Se hvordan det fungerer
               </a>
             </div>
 
             {/* Mini stats */}
-            <div className="flex flex-wrap gap-6 pt-4">
+            <div className="flex flex-wrap gap-6 pt-4" role="list" aria-label="Nøkkeltall">
               {miniStats.map((stat, i) => (
-                <div key={i} className="flex items-center gap-3">
+                <div key={i} className="flex items-center gap-3" role="listitem">
                   <div className="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center">
-                    <stat.icon size={16} className="text-blue-400" />
+                    <stat.icon size={16} className="text-cyan-400" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-sm font-bold text-white">{stat.value}</p>
@@ -77,12 +82,12 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
           </div>
 
           {/* Right: Visual demo */}
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block" aria-hidden="true">
             <div className="relative bg-[#0f0f14] border border-white/10 rounded-2xl p-6 glow-blue">
               <div className="space-y-4">
                 {/* Header */}
                 <div className="flex items-center gap-3 pb-4 border-b border-white/5">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center">
                     <MessageSquare size={18} className="text-white" />
                   </div>
                   <div>
@@ -98,10 +103,10 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
                 {/* Messages */}
                 <div className="space-y-3 py-2">
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs font-bold">Q</span>
                     </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                    <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
                       <p className="text-zinc-300 text-sm">Hei Lars, så du nettopp postet om utfordringene med å skalere salgsteamet deres i Trondheim. Har du vurdert å automatisere deler av LinkedIn-rekrutteringen? Jeg kan vise deg hvordan vi hjalp et liknende selskap med å doble antall møter.</p>
                       <p className="text-zinc-500 text-xs mt-2">09:14 — Sendt av Qognito AI</p>
                     </div>
@@ -118,10 +123,10 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
                   </div>
 
                   <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center flex-shrink-0 mt-1">
                       <span className="text-white text-xs font-bold">Q</span>
                     </div>
-                    <div className="bg-blue-500/10 border border-blue-500/20 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
+                    <div className="bg-cyan-500/10 border border-cyan-500/20 rounded-2xl rounded-tl-sm px-4 py-3 max-w-[85%]">
                       <p className="text-zinc-300 text-sm">Selvfølgelig! Jeg har ledig tid torsdag kl. 14:00. Passer det for en kort 15-minutters demo? Jeg viser deg konkrete tall fra en kunde i samme bransje.</p>
                       <div className="mt-3 flex gap-2">
                         <button className="px-4 py-2 bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-400 text-sm font-medium rounded-lg transition-colors flex items-center gap-2">
@@ -137,7 +142,7 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
                 {/* Stats row */}
                 <div className="grid grid-cols-3 gap-3 pt-4 border-t border-white/5">
                   <div className="text-center p-3 rounded-xl bg-white/[0.02]">
-                    <Users size={16} className="mx-auto mb-1 text-blue-400" />
+                    <Users size={16} className="mx-auto mb-1 text-cyan-400" />
                     <p className="text-lg font-bold text-white">47%</p>
                     <p className="text-xs text-zinc-500">connection rate</p>
                   </div>
@@ -161,7 +166,7 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
             </div>
             <div className="absolute -bottom-4 -left-4 bg-[#0f0f14] border border-white/10 rounded-xl px-4 py-3 animate-float" style={{ animationDelay: '2s' }}>
               <p className="text-xs text-zinc-500">Tidsbesparelse</p>
-              <p className="text-xl font-bold text-blue-400">15t/uke</p>
+              <p className="text-xl font-bold text-cyan-400">15t/uke</p>
             </div>
           </div>
         </div>

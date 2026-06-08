@@ -96,7 +96,7 @@ export default function Personvern() {
                 Har du spørsmål om personvern eller ønsker å utøve dine rettigheter? Kontakt oss på:
               </p>
               <p className="text-sm text-zinc-300 mt-2">
-                E-post: hei@qognito.no<br />
+                E-post: hei@vikingnet.no<br />
                 Adresse: Norge
               </p>
             </section>

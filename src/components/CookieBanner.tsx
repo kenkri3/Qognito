@@ -28,7 +28,7 @@ export default function CookieBanner() {
             </p>
             <p className="text-xs text-zinc-500">
               Ved å fortsette å bruke nettsiden samtykker du i vår bruk av cookies.{' '}
-              <a href="/personvern" className="text-blue-400 hover:text-blue-300 underline">
+              <a href="/personvern" className="text-cyan-400 hover:text-cyan-300 underline">
                 Les mer
               </a>
             </p>
@@ -36,7 +36,7 @@ export default function CookieBanner() {
           <div className="flex items-center gap-2 flex-shrink-0">
             <button
               onClick={acceptCookies}
-              className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-lg transition-colors"
+              className="px-4 py-2 bg-cyan-600 hover:bg-cyan-500 text-white text-sm font-medium rounded-lg transition-colors"
             >
               Godta
             </button>

@@ -125,20 +125,20 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
           <div className="flex flex-col lg:flex-row lg:items-start gap-4 lg:gap-6">
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-2">
-                <Shield size={18} className="text-blue-400" />
+                <Shield size={18} className="text-cyan-400" />
                 <h3 className="text-sm font-semibold text-white">Vi bruker informasjonskapsler</h3>
               </div>
               <p className="text-sm text-zinc-400 leading-relaxed mb-2">
                 Vi bruker informasjonskapsler og lignende teknologier for å forbedre nettsiden, 
                 analysere trafikk og tilpasse innhold. Samtykket ditt er frivillig, og du kan 
                 endre eller trekke det tilbake når som helst.{' '}
-                <a href="/personvern" className="text-blue-400 hover:text-blue-300 underline">
+                <a href="/personvern" className="text-cyan-400 hover:text-cyan-300 underline">
                   Les mer i personvernerklæringen
                 </a>
               </p>
               <button
                 onClick={() => setShowDetails(!showDetails)}
-                className="flex items-center gap-1 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                className="flex items-center gap-1 text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
               >
                 {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                 {showDetails ? 'Skjul detaljer' : 'Velg hva du samtykker til'}
@@ -161,7 +161,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-blue-500/25 text-sm whitespace-nowrap"
+                className="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-cyan-500/25 text-sm whitespace-nowrap"
               >
                 Godta alle
               </button>
@@ -195,8 +195,8 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
 
               {/* Funksjonelle */}
               <div className="flex items-start gap-4 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                <div className="w-9 h-9 rounded-lg bg-blue-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <Settings size={18} className="text-blue-400" />
+                <div className="w-9 h-9 rounded-lg bg-cyan-500/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <Settings size={18} className="text-cyan-400" />
                 </div>
                 <div className="flex-1">
                   <div className="flex items-center justify-between mb-1">
@@ -204,7 +204,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
                     <button
                       onClick={() => toggleCategory('functional')}
                       className={`w-10 h-6 rounded-full flex items-center px-1 transition-all ${
-                        consent.functional ? 'bg-blue-500 justify-end' : 'bg-zinc-700 justify-start'
+                        consent.functional ? 'bg-cyan-500 justify-end' : 'bg-zinc-700 justify-start'
                       }`}
                     >
                       <div className="w-4 h-4 rounded-full bg-white" />
@@ -227,7 +227,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
                     <button
                       onClick={() => toggleCategory('analytics')}
                       className={`w-10 h-6 rounded-full flex items-center px-1 transition-all ${
-                        consent.analytics ? 'bg-blue-500 justify-end' : 'bg-zinc-700 justify-start'
+                        consent.analytics ? 'bg-cyan-500 justify-end' : 'bg-zinc-700 justify-start'
                       }`}
                     >
                       <div className="w-4 h-4 rounded-full bg-white" />
@@ -251,7 +251,7 @@ export default function CookieConsent({ onConsentChange }: CookieConsentProps) {
                     <button
                       onClick={() => toggleCategory('marketing')}
                       className={`w-10 h-6 rounded-full flex items-center px-1 transition-all ${
-                        consent.marketing ? 'bg-blue-500 justify-end' : 'bg-zinc-700 justify-start'
+                        consent.marketing ? 'bg-cyan-500 justify-end' : 'bg-zinc-700 justify-start'
                       }`}
                     >
                       <div className="w-4 h-4 rounded-full bg-white" />

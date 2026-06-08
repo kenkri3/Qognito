@@ -32,7 +32,7 @@ export default function WhoItsForSection() {
     <section className="relative py-24 lg:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <p className="text-sm font-medium text-blue-400 uppercase tracking-wider mb-3">Hvem passer det for</p>
+          <p className="text-sm font-medium text-cyan-400 uppercase tracking-wider mb-3">Hvem passer det for</p>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
             Bygget for de som selger B2B i Norge
           </h2>
@@ -48,7 +48,7 @@ export default function WhoItsForSection() {
               className="group relative p-8 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-white/10 hover:bg-white/[0.04] transition-all"
             >
               <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${
-                audience.color === 'blue' ? 'bg-blue-500/10 text-blue-400' :
+                audience.color === 'blue' ? 'bg-cyan-500/10 text-cyan-400' :
                 audience.color === 'purple' ? 'bg-purple-500/10 text-purple-400' :
                 'bg-emerald-500/10 text-emerald-400'
               }`}>

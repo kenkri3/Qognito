@@ -1,14 +1,12 @@
 import { Link } from 'react-router'
 import { Cookie } from 'lucide-react'
 
-// BYTT DENNE URLEN NÅR DU FÅR WHITELABEL-LINKEN FRA SCALIQ
-const LOGIN_URL = 'https://app.scaliq.ai/login' // ← Oppdater til din whitelabel-URL
+// Whitelabel login URL for Qognito
+const LOGIN_URL = 'https://app.qognito.no'
 
 export default function Footer() {
   const handleReopenConsent = () => {
-    // Remove stored consent to trigger banner again
     localStorage.removeItem('qognito-cookie-consent-v1')
-    // Reload page to trigger banner
     window.location.reload()
   }
 
@@ -18,12 +16,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
-                <span className="text-white font-bold text-xs">Q</span>
-              </div>
+            <Link to="/" className="flex items-center gap-3 mb-4">
+              <img
+                src="/logo.jpg"
+                alt="Qognito logo"
+                className="w-8 h-8 rounded-lg object-cover"
+              />
               <span className="text-lg font-bold text-white">
-                Qognito<span className="text-blue-400">.no</span>
+                Qognito<span className="text-cyan-400">.no</span>
               </span>
             </Link>
             <p className="text-sm text-zinc-500 max-w-xs">
@@ -73,7 +73,7 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hei@qognito.no" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <a href="mailto:hei@vikingnet.no" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
                   Kontakt support
                 </a>
               </li>
@@ -107,13 +107,34 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-zinc-600">
-            &copy; {new Date().getFullYear()} Qognito. Alle rettigheter reservert.
-          </p>
-          <div className="flex items-center gap-4 text-xs text-zinc-600">
-            <span>hei@qognito.no</span>
-            <span>Norge</span>
+        <div className="pt-8 border-t border-white/5 flex flex-col gap-4">
+          {/* Company info */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-zinc-600">
+              &copy; {new Date().getFullYear()} Qognito. Alle rettigheter reservert.
+            </p>
+            <p className="text-xs text-zinc-600">
+              Drives av AIChat Norge AS (Org.nr: 933 851 222)
+            </p>
+            <div className="flex items-center gap-4 text-xs text-zinc-600">
+              <span>hei@vikingnet.no</span>
+              <span>Norge</span>
+            </div>
+          </div>
+
+          {/* Vikingnet credit */}
+          <div className="text-center pt-4 border-t border-white/5">
+            <p className="text-xs text-zinc-700">
+              Utviklet av{' '}
+              <a
+                href="https://vikingnet.no/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-zinc-500 hover:text-cyan-400 transition-colors underline"
+              >
+                Vikingnet
+              </a>
+            </p>
           </div>
         </div>
       </div>

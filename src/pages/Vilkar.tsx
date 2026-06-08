@@ -58,7 +58,7 @@ export default function Vilkar() {
             <section>
               <h2 className="text-xl font-bold text-white mb-3">6. Oppsigelse</h2>
               <p className="text-sm leading-relaxed">
-                Du kan si opp abonnementet ditt når som helst ved å kontakte oss på hei@qognito.no. Oppsigelsen trer i kraft ved slutten av den pågående faktureringsperioden. Ingen refusjon gis for delvise perioder.
+                Du kan si opp abonnementet ditt når som helst ved å kontakte oss på hei@vikingnet.no. Oppsigelsen trer i kraft ved slutten av den pågående faktureringsperioden. Ingen refusjon gis for delvise perioder.
               </p>
             </section>
 
@@ -96,7 +96,7 @@ export default function Vilkar() {
                 Har du spørsmål om disse vilkårene? Kontakt oss på:
               </p>
               <p className="text-sm text-zinc-300 mt-2">
-                E-post: hei@qognito.no
+                E-post: hei@vikingnet.no
               </p>
             </section>
 

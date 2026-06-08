@@ -14,7 +14,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
     epost: '',
     bedrift: '',
     telefon: '',
-    antallKontoer: '1',
+    antallBrukere: '1',
     melding: '',
   })
 
@@ -72,8 +72,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
           <div className="p-8">
             {/* Header */}
             <div className="flex items-center gap-3 mb-2">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center">
-                <Calendar size={20} className="text-blue-400" />
+              <div className="w-10 h-10 rounded-xl bg-cyan-500/10 flex items-center justify-center">
+                <Calendar size={20} className="text-cyan-400" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Book gratis demo</h3>
@@ -96,7 +96,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     required
                     value={formData.navn}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="Ola Nordmann"
                   />
                 </div>
@@ -108,7 +108,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     required
                     value={formData.epost}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="ola@bedrift.no"
                   />
                 </div>
@@ -123,7 +123,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     required
                     value={formData.bedrift}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="Din Bedrift AS"
                   />
                 </div>
@@ -134,25 +134,25 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                     name="telefon"
                     value={formData.telefon}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="+47 999 99 999"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm text-zinc-400 mb-1.5">Hvor mange LinkedIn-kontoer trenger du? *</label>
+                <label className="block text-sm text-zinc-400 mb-1.5">Hvor mange brukere trenger dere? *</label>
                 <select
-                  name="antallKontoer"
+                  name="antallBrukere"
                   required
-                  value={formData.antallKontoer}
+                  value={formData.antallBrukere}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all appearance-none cursor-pointer"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all appearance-none cursor-pointer"
                 >
-                  <option value="1" className="bg-[#0f0f14]">1 konto (Solo - 990 kr/mnd)</option>
-                  <option value="2" className="bg-[#0f0f14]">2 kontoer (Duo - 1 490 kr/mnd)</option>
-                  <option value="3" className="bg-[#0f0f14]">3 kontoer (Trio - 1 990 kr/mnd)</option>
-                  <option value="4" className="bg-[#0f0f14]">4 kontoer (Team - 2 490 kr/mnd)</option>
+                  <option value="1" className="bg-[#0f0f14]">1 bruker (Solo – 1 490 kr/mnd)</option>
+                  <option value="2" className="bg-[#0f0f14]">2 brukere (Duo – 2 490 kr/mnd)</option>
+                  <option value="3" className="bg-[#0f0f14]">3 brukere (Trio – 3 490 kr/mnd)</option>
+                  <option value="4" className="bg-[#0f0f14]">4 brukere (Team – 4 290 kr/mnd)</option>
                   <option value="mer" className="bg-[#0f0f14]">Flere enn 4 (Byrå-løsning)</option>
                 </select>
               </div>
@@ -164,7 +164,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   rows={3}
                   value={formData.melding}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-blue-500/50 focus:ring-1 focus:ring-blue-500/50 transition-all resize-none"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all resize-none"
                   placeholder="F.eks. bransje, målgruppe, antall selgere..."
                 />
               </div>
@@ -172,7 +172,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 hover:bg-blue-500 disabled:bg-blue-600/50 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-blue-500/25"
+                className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-cyan-600 hover:bg-cyan-500 disabled:bg-cyan-600/50 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-cyan-500/25"
               >
                 {submitting ? (
                   <>
@@ -206,7 +206,7 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               Din forespørsel er sendt. Vi ringer eller sender deg en e-post innen 24 timer for å avtale en demo-tid som passer deg.
             </p>
             <p className="text-zinc-500 text-xs mb-8">
-              I mellomtiden: Har du spørsmål? Send en e-post til hei@qognito.no
+              I mellomtiden: Har du spørsmål? Send en e-post til hei@vikingnet.no
             </p>
             <button
               onClick={onClose}
