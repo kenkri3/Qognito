@@ -1,20 +1,39 @@
 import { useState } from 'react'
-import '../App.css'
+import Navbar from '../components/Navbar'
+import Footer from '../components/Footer'
+import CookieConsent, { type ConsentState } from '../components/CookieConsent'
+import DemoModal from '../components/DemoModal'
+import HeroSection from '../sections/HeroSection'
+import PainPointsSection from '../sections/PainPointsSection'
+import NorwayStatsSection from '../sections/NorwayStatsSection'
+import HowItWorksSection from '../sections/HowItWorksSection'
+import FeaturesSection from '../sections/FeaturesSection'
+import WhoItsForSection from '../sections/WhoItsForSection'
+import PricingSection from '../sections/PricingSection'
+import FAQSection from '../sections/FAQSection'
+import CTASection from '../sections/CTASection'
 
 export default function Home() {
-  const [count, setCount] = useState(0)
+  const [isDemoOpen, setIsDemoOpen] = useState(false)
+  const [, setCookieConsent] = useState<ConsentState | null>(null)
 
   return (
-    <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-    </>
+    <div className="min-h-screen bg-[#0a0a0f]">
+      <Navbar onDemoClick={() => setIsDemoOpen(true)} />
+      <main>
+        <HeroSection onDemoClick={() => setIsDemoOpen(true)} />
+        <PainPointsSection />
+        <NorwayStatsSection onDemoClick={() => setIsDemoOpen(true)} />
+        <HowItWorksSection />
+        <FeaturesSection />
+        <WhoItsForSection />
+        <PricingSection onDemoClick={() => setIsDemoOpen(true)} />
+        <FAQSection />
+        <CTASection onDemoClick={() => setIsDemoOpen(true)} />
+      </main>
+      <Footer />
+      <CookieConsent onConsentChange={setCookieConsent} />
+      <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
+    </div>
   )
 }
