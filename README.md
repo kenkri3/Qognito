@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+
+
+<!-- Deploy triggered: Auto-deploy to Firebase Hosting -->
