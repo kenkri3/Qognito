@@ -91,8 +91,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="demo-bedrift" className="block text-sm text-zinc-400 mb-1.5">Bedrift *</label>
-                  <input type="text" id="demo-bedrift" name="bedrift" required className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="Din Bedrift AS" />
+                  <label htmlFor="demo-bedrift" className="block text-sm text-zinc-400 mb-1.5">Bedrift</label>
+                  <input type="text" id="demo-bedrift" name="bedrift" className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all" placeholder="Din Bedrift AS" />
                 </div>
                 <div>
                   <label htmlFor="demo-telefon" className="block text-sm text-zinc-400 mb-1.5">Telefon</label>
