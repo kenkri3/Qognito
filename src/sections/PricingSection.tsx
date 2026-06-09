@@ -66,6 +66,23 @@ const plans = [
     ],
     highlighted: false,
   },
+  {
+    name: 'Byrå',
+    description: '5+ brukere – for byråer og store team',
+    brukere: '5+',
+    price: 'Kontakt oss',
+    leads: 'Ubegrenset leads',
+    features: [
+      'Ubegrenset antall LinkedIn-kontoer',
+      'Ubegrenset leads',
+      'AI-personalisering',
+      'Automatisk oppfølging',
+      'Møtebooking',
+      'Dedikert norsk support',
+      'Skreddersydd onboarding',
+    ],
+    highlighted: false,
+  },
 ]
 
 interface PricingSectionProps {
@@ -86,7 +103,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {plans.map((plan, i) => (
             <div
               key={i}
@@ -107,7 +124,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
                   <Users size={16} className="text-zinc-500" />
-                  <span className="text-sm text-zinc-400">{plan.brukere} {plan.brukere === 1 ? 'bruker' : 'brukere'}</span>
+                  <span className="text-sm text-zinc-400">{plan.brukere} {plan.brukere === 1 ? 'bruker' : plan.brukere === '5+' ? 'brukere' : 'brukere'}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
                 <p className="text-xs text-zinc-500">{plan.description}</p>
@@ -147,7 +164,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
 
         <div className="mt-12 text-center">
           <p className="text-sm text-zinc-500 mb-2">
-            <span className="text-zinc-400 font-medium">Trenger du mer enn 4 brukere?</span> Vi setter opp en skreddersydd løsning for din bedrift eller byrå.{' '}
+            <span className="text-zinc-400 font-medium">Trenger du flere brukere?</span> Legg til så mange du vil. Vi setter opp det som passer din bedrift.{' '}
             <button onClick={onDemoClick} className="text-cyan-400 hover:text-cyan-300 underline">Kontakt oss</button>
           </p>
           <p className="text-xs text-zinc-600">

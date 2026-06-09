@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     question: 'Hvor mange kontoer kan jeg koble til?',
-    answer: 'Hver brukerkonto i Qognito kan ha opptil 4 LinkedIn-profiler. Trenger du flere? Du kan enkelt opprette flere brukerkontoer i systemet vårt. Byråer og større bedrifter får en skreddersydd løsning som passer deres behov.',
+    answer: 'Du kan legge til så mange LinkedIn-kontoer du vil i Qognito — det er ingen øvre grense. Byråer og større bedrifter får en skreddersydd løsning med ubegrenset antall kontoer. Kontakt oss for et tilpasset tilbud.',
   },
 ]
 

@@ -144,7 +144,8 @@ export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
                   <option value="2" className="bg-[#0f0f14]">2 brukere (Duo – 2 490 kr/mnd)</option>
                   <option value="3" className="bg-[#0f0f14]">3 brukere (Trio – 3 490 kr/mnd)</option>
                   <option value="4" className="bg-[#0f0f14]">4 brukere (Team – 4 290 kr/mnd)</option>
-                  <option value="mer" className="bg-[#0f0f14]">Flere enn 4 (Byrå-løsning)</option>
+                  <option value="5-10" className="bg-[#0f0f14]">5–10 brukere (Byrå)</option>
+                  <option value="10+" className="bg-[#0f0f14]">10+ brukere (Stort byrå)</option>
                 </select>
                 <ValidationError prefix="Antall brukere" field="antallBrukere" errors={state.errors} className="text-xs text-red-400 mt-1" />
               </div>
