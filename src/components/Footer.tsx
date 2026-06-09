@@ -1,10 +1,14 @@
 import { Link } from 'react-router'
-import { Cookie } from 'lucide-react'
+import { Cookie, Phone } from 'lucide-react'
 
 // Whitelabel login URL for Qognito
 const LOGIN_URL = 'https://app.qognito.no'
 
-export default function Footer() {
+interface FooterProps {
+  onContactClick?: () => void
+}
+
+export default function Footer({ onContactClick }: FooterProps) {
   const handleReopenConsent = () => {
     localStorage.removeItem('qognito-cookie-consent-v1')
     window.location.reload()
@@ -26,9 +30,16 @@ export default function Footer() {
                 Qognito<span className="text-cyan-400">.no</span>
               </span>
             </Link>
-            <p className="text-sm text-zinc-500 max-w-xs">
+            <p className="text-sm text-zinc-500 max-w-xs mb-4">
               Norsk AI-agent for LinkedIn-salg. Vi hjelper B2B-bedrifter med å få flere møter — helt automatisk.
             </p>
+            <a
+              href="tel:+4740163082"
+              className="inline-flex items-center gap-2 text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              <Phone size={14} />
+              40 16 30 82
+            </a>
           </div>
 
           {/* Navigation */}
@@ -73,8 +84,20 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:hei@vikingnet.no" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <button
+                  onClick={onContactClick}
+                  className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
                   Kontakt support
+                </button>
+              </li>
+              <li>
+                <a
+                  href="tel:+4740163082"
+                  className="inline-flex items-center gap-1.5 text-sm text-cyan-400 hover:text-cyan-300 transition-colors"
+                >
+                  <Phone size={14} />
+                  40 16 30 82
                 </a>
               </li>
             </ul>
@@ -117,7 +140,12 @@ export default function Footer() {
               Drives av AIChat Norge AS (Org.nr: 933 851 222)
             </p>
             <div className="flex items-center gap-4 text-xs text-zinc-600">
-              <span>hei@vikingnet.no</span>
+              <a href="tel:+4740163082" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                40 16 30 82
+              </a>
+              <a href="mailto:hei@vikingnet.no" className="hover:text-zinc-400 transition-colors">
+                hei@vikingnet.no
+              </a>
               <span>Norge</span>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router'
-import { Menu, X, LogIn } from 'lucide-react'
+import { Menu, X, LogIn, Phone } from 'lucide-react'
 
 const navLinks = [
   { href: '/#hvordan', label: 'Hvordan det fungerer' },
@@ -81,6 +81,15 @@ export default function Navbar({ onDemoClick }: NavbarProps) {
 
           {/* CTA buttons + Mobile toggle */}
           <div className="flex items-center gap-3">
+            {/* Telefon - desktop */}
+            <a
+              href="tel:+4740163082"
+              className="hidden xl:inline-flex items-center gap-2 px-4 py-2.5 text-sm text-cyan-400 hover:text-cyan-300 border border-cyan-500/20 hover:border-cyan-500/40 rounded-lg transition-all"
+            >
+              <Phone size={16} />
+              40 16 30 82
+            </a>
+
             {/* Logg inn - desktop */}
             <a
               href={LOGIN_URL}
@@ -123,6 +132,15 @@ export default function Navbar({ onDemoClick }: NavbarProps) {
                 {link.label}
               </a>
             ))}
+
+            {/* Telefon - mobile */}
+            <a
+              href="tel:+4740163082"
+              className="flex items-center gap-2 px-4 py-3 text-cyan-400 hover:text-cyan-300 hover:bg-white/5 rounded-lg transition-colors"
+            >
+              <Phone size={16} />
+              40 16 30 82
+            </a>
 
             {/* Logg inn - mobile */}
             <a
