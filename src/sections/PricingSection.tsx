@@ -1,4 +1,4 @@
-import { Check, Users } from 'lucide-react'
+import { Check, Users, ArrowRight } from 'lucide-react'
 
 const plans = [
   {
@@ -66,23 +66,6 @@ const plans = [
     ],
     highlighted: false,
   },
-  {
-    name: 'Byrå',
-    description: '5+ brukere – for byråer og store team',
-    brukere: '5+',
-    price: 'Kontakt oss',
-    leads: 'Ubegrenset leads',
-    features: [
-      'Ubegrenset antall LinkedIn-kontoer',
-      'Ubegrenset leads',
-      'AI-personalisering',
-      'Automatisk oppfølging',
-      'Møtebooking',
-      'Dedikert norsk support',
-      'Skreddersydd onboarding',
-    ],
-    highlighted: false,
-  },
 ]
 
 interface PricingSectionProps {
@@ -103,7 +86,8 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        {/* 4 standard pakker */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {plans.map((plan, i) => (
             <div
               key={i}
@@ -124,7 +108,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-2">
                   <Users size={16} className="text-zinc-500" />
-                  <span className="text-sm text-zinc-400">{plan.brukere} {plan.brukere === 1 ? 'bruker' : plan.brukere === '5+' ? 'brukere' : 'brukere'}</span>
+                  <span className="text-sm text-zinc-400">{plan.brukere} {plan.brukere === 1 ? 'bruker' : 'brukere'}</span>
                 </div>
                 <h3 className="text-xl font-bold text-white mb-1">{plan.name}</h3>
                 <p className="text-xs text-zinc-500">{plan.description}</p>
@@ -162,11 +146,50 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
           ))}
         </div>
 
+        {/* Byrå / Enterprise boks */}
+        <div className="mt-6">
+          <div className="relative rounded-2xl p-8 bg-gradient-to-r from-cyan-500/5 via-purple-500/5 to-cyan-500/5 border border-cyan-500/10 hover:border-cyan-500/20 transition-all">
+            <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <Users size={16} className="text-cyan-400" />
+                  <span className="text-sm text-cyan-400 font-medium">5+ brukere</span>
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-2">Byrå & Enterprise</h3>
+                <p className="text-zinc-400 text-sm max-w-2xl">
+                  For byråer og store team som trenger ubegrenset antall kontoer. Skreddersydd løsning med dedikert support, onboarding og fleksibel prising. Legg til så mange brukere du vil.
+                </p>
+                <div className="flex flex-wrap gap-4 mt-4">
+                  <span className="flex items-center gap-1.5 text-xs text-zinc-300">
+                    <Check size={14} className="text-emerald-400" />
+                    Ubegrenset LinkedIn-kontoer
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-zinc-300">
+                    <Check size={14} className="text-emerald-400" />
+                    Ubegrenset leads
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-zinc-300">
+                    <Check size={14} className="text-emerald-400" />
+                    Dedikert norsk support
+                  </span>
+                  <span className="flex items-center gap-1.5 text-xs text-zinc-300">
+                    <Check size={14} className="text-emerald-400" />
+                    Skreddersydd onboarding
+                  </span>
+                </div>
+              </div>
+              <button
+                onClick={onDemoClick}
+                className="flex items-center gap-2 px-6 py-3.5 bg-cyan-600 hover:bg-cyan-500 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-cyan-500/25 whitespace-nowrap"
+              >
+                Book demo
+                <ArrowRight size={16} />
+              </button>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-12 text-center">
-          <p className="text-sm text-zinc-500 mb-2">
-            <span className="text-zinc-400 font-medium">Trenger du flere brukere?</span> Legg til så mange du vil. Vi setter opp det som passer din bedrift.{' '}
-            <button onClick={onDemoClick} className="text-cyan-400 hover:text-cyan-300 underline">Kontakt oss</button>
-          </p>
           <p className="text-xs text-zinc-600">
             14 dagers gratis prøveperiode. Ingen binding. Alle priser eks. mva.
           </p>
