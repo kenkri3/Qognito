@@ -37,7 +37,7 @@ export default function CTASection({ onDemoClick }: CTASectionProps) {
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            14 dager gratis
+            Personlige meldinger
           </span>
           <span className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
