@@ -1,6 +1,5 @@
 {
   "hosting": {
-    "site": "qognito",
     "public": "dist",
     "ignore": [
       "firebase.json",
