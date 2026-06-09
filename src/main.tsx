@@ -1,9 +1,8 @@
-import ReactDOM from 'react-dom/client'
-
+// Test med ren JS
 const root = document.getElementById('root')!
-ReactDOM.createRoot(root).render(
-  <div style={{ padding: 50, fontSize: 30, color: 'black', background: 'white' }}>
+root.innerHTML = `
+  <div style="padding: 50px; font-size: 30px; color: black; background: white;">
     <h1>Qognito fungerer!</h1>
-    <p>Hvis du ser denne teksten, fungerer React.</p>
-  </div>,
-)
+    <p>Hvis du ser denne teksten, fungerer JavaScript.</p>
+  </div>
+`
