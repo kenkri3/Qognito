@@ -1,11 +1,9 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import ReactDOM from 'react-dom/client'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <div style={{ padding: 50, fontSize: 30, color: 'black' }}>
-      <h1>Qognito fungerer!</h1>
-      <p>Hvis du ser denne teksten, fungerer React.</p>
-    </div>
-  </StrictMode>,
+const root = document.getElementById('root')!
+ReactDOM.createRoot(root).render(
+  <div style={{ padding: 50, fontSize: 30, color: 'black', background: 'white' }}>
+    <h1>Qognito fungerer!</h1>
+    <p>Hvis du ser denne teksten, fungerer React.</p>
+  </div>,
 )
