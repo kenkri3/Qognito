@@ -19,8 +19,8 @@ const faqs = [
     answer: 'De fleste ser første svar innen 2-5 dager. Typisk connection-rate er 40-50% og svar-rate 20-30%, avhengig av din målgruppe og meldinger. Vi ser ofte de første bookede møtene i løpet av den første uken.',
   },
   {
-    question: 'Hva skjer etter prøveperioden?',
-    answer: 'Du velger selv om du vil fortsette. Ingen automatiske trekk eller skjulte bindinger. Vi sender deg en påminnelse før prøveperioden utløper, og du kan enkelt avslutte eller velge en plan som passer deg.',
+    question: 'Er det noen bindingstid?',
+    answer: 'Nei, det er ingen bindingstid. Du kan avslutte abonnementet ditt når som helst. Ingen skjulte gebyrer eller automatiske fornyelser du ikke kan komme deg ut av. Vi tror på at godt produkt holder kundene – ikke kontrakter.',
   },
   {
     question: 'Hvor mange kontoer kan jeg koble til?',

@@ -77,7 +77,7 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
             </div>
 
             <p className="text-sm text-zinc-600">
-              Ingen kort. Ingen binding. 14 dagers gratis prøveperiode.
+              Ingen kort. Ingen bindingstid.
             </p>
           </div>
 

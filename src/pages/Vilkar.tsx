@@ -51,7 +51,7 @@ export default function Vilkar() {
             <section>
               <h2 className="text-xl font-bold text-white mb-3">5. Priser og betaling</h2>
               <p className="text-sm leading-relaxed">
-                Alle priser er oppgitt i norske kroner (NOK) og er eksklusiv merverdiavgift (mva.). Betaling skjer forskuddsvis for hver faktureringsperiode. Vi tilbyr en 14-dagers gratis prøveperiode for nye kunder. Det er ingen bindingstid, og du kan kansellere når som helst.
+                Alle priser er oppgitt i norske kroner (NOK) og er eksklusiv merverdiavgift (mva.). Betaling skjer forskuddsvis for hver faktureringsperiode. Det er ingen bindingstid, og du kan kansellere abonnementet ditt når som helst.
               </p>
             </section>
 

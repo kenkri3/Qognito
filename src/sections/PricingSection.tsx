@@ -140,7 +140,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
                     : 'bg-white/5 hover:bg-white/10 text-zinc-300 border border-white/10'
                 }`}
               >
-                {plan.highlighted ? 'Start prøveperiode' : 'Book demo'}
+                {plan.highlighted ? 'Kom i gang' : 'Book demo'}
               </button>
             </div>
           ))}
@@ -191,7 +191,7 @@ export default function PricingSection({ onDemoClick }: PricingSectionProps) {
 
         <div className="mt-12 text-center">
           <p className="text-xs text-zinc-600">
-            14 dagers gratis prøveperiode. Ingen binding. Alle priser eks. mva.
+            Ingen bindingstid. Alle priser eks. mva.
           </p>
         </div>
       </div>
