@@ -1,8 +1,19 @@
-// Test med ren JS
-const root = document.getElementById('root')!
-root.innerHTML = `
-  <div style="padding: 50px; font-size: 30px; color: black; background: white;">
-    <h1>Qognito fungerer!</h1>
-    <p>Hvis du ser denne teksten, fungerer JavaScript.</p>
-  </div>
-`
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { createHashRouter, RouterProvider } from 'react-router'
+import './index.css'
+import Home from './pages/Home'
+import Personvern from './pages/Personvern'
+import Vilkar from './pages/Vilkar'
+
+const router = createHashRouter([
+  { path: '/', element: <Home /> },
+  { path: '/personvern', element: <Personvern /> },
+  { path: '/vilkar', element: <Vilkar /> },
+])
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <RouterProvider router={router} />
+  </StrictMode>,
+)
