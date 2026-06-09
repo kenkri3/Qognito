@@ -4,7 +4,7 @@ const audiences = [
   {
     icon: Building2,
     title: 'B2B-byråer',
-    description: 'Administrer outreach for opptil 4 kunder fra én plattform. Skaler uten å ansette flere selgere. La AI-en gjøre det tunge arbeidet mens du fokuserer på strategi.',
+    description: 'Administrer outreach for alle dine kunder fra én plattform. Skaler uten å ansette flere selgere. La AI-en gjøre det tunge arbeidet mens du fokuserer på strategi.',
     quote: 'Vi booket 23 møter for kundene våre den første måneden — uten å ansette en ekstra selger.',
     author: 'Markedsføringsbyrå, Oslo',
     color: 'blue',

@@ -52,13 +52,13 @@ export default function HeroSection({ onDemoClick }: HeroSectionProps) {
                 Book gratis demo
                 <ArrowRight size={18} />
               </button>
-              <a
-                href="#hvordan"
+              <button
+                onClick={() => document.getElementById('hvordan')?.scrollIntoView({ behavior: 'smooth' })}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-zinc-300 hover:text-white font-medium rounded-xl border border-white/10 transition-all"
                 aria-label="Se hvordan Qognito fungerer"
               >
                 Se hvordan det fungerer
-              </a>
+              </button>
             </div>
 
             {/* Mini stats */}
