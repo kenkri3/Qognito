@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { X, Send, CheckCircle, Calendar, ArrowRight } from 'lucide-react'
 import { saveDemoRequest } from '@/lib/firebase'
 
@@ -8,89 +8,37 @@ interface DemoModalProps {
 }
 
 export default function DemoModal({ isOpen, onClose }: DemoModalProps) {
-  const [submitting, setSubmitting] = useState(false)
-  const [succeeded, setSucceeded] = useState(false)
-  const [errors, setErrors] = useState<string | null>(null)
+  const [state, handleSubmit] = useForm('xrevqjlb')
 
   if (!isOpen) return null
 
+  // Lukk modal når man klikker backdrop
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) {
       onClose()
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitting(true)
-    setErrors(null)
-
+  // Wrapper som lagrer i Firestore før Formspree sender mail
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const formData = new FormData(e.currentTarget)
-    const data = {
-      navn: formData.get('navn') as string,
-      epost: formData.get('epost') as string,
-      bedrift: formData.get('bedrift') as string,
-      telefon: (formData.get('telefon') as string) || '',
-      antallBrukere: formData.get('antallBrukere') as string,
-      melding: (formData.get('melding') as string) || '',
-    }
-
+    
+    // Lagre i Firestore (ikke blokker Formspree hvis dette feiler)
     try {
-      // 1. Lagre i Firestore
-      const firestoreResult = await saveDemoRequest(data)
-      if (!firestoreResult.success) {
-        console.warn('Firestore lagring feilet, fortsetter med mail...')
-      }
-
-      // 2. Send mail via Web3Forms (gratis mail-API til hei@vikingnet.no)
-      const mailResponse = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: 'REPLACE_WITH_WEB3FORMS_KEY',
-          subject: `Ny demo-forespørsel fra ${data.navn} - ${data.bedrift}`,
-          from_name: data.navn,
-          from_email: data.epost,
-          reply_to: data.epost,
-          message: `
-Ny demo-forespørsel fra Qognito.no
-
-Navn: ${data.navn}
-E-post: ${data.epost}
-Bedrift: ${data.bedrift}
-Telefon: ${data.telefon || 'Ikke oppgitt'}
-Pakke: ${data.antallBrukere}
-Melding: ${data.melding || 'Ingen melding'}
-
-Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
-          `.trim(),
-          to: 'hei@vikingnet.no',
-        }),
+      await saveDemoRequest({
+        navn: formData.get('navn') as string,
+        epost: formData.get('epost') as string,
+        bedrift: formData.get('bedrift') as string,
+        telefon: (formData.get('telefon') as string) || '',
+        antallBrukere: formData.get('antallBrukere') as string,
+        melding: (formData.get('melding') as string) || '',
       })
-
-      if (!mailResponse.ok) {
-        // Fallback: Prøv Formspree hvis Web3Forms feiler
-        const formspreeData = new FormData()
-        Object.entries(data).forEach(([key, value]) => {
-          formspreeData.append(key, value)
-        })
-        formspreeData.append('_replyto', data.epost)
-        formspreeData.append('_subject', `Ny demo-forespørsel: ${data.navn} - ${data.bedrift}`)
-
-        await fetch('https://formspree.io/f/xrevqjlb', {
-          method: 'POST',
-          body: formspreeData,
-          mode: 'no-cors',
-        })
-      }
-
-      setSucceeded(true)
     } catch (err) {
-      console.error('Submit error:', err)
-      setErrors('Noe gikk galt. Prøv igjen eller kontakt oss på hei@vikingnet.no')
-    } finally {
-      setSubmitting(false)
+      console.warn('Firestore lagring feilet, fortsetter med Formspree:', err)
     }
+
+    // Send via Formspree (som fungerer!)
+    handleSubmit(e)
   }
 
   return (
@@ -112,7 +60,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
           <X size={20} />
         </button>
 
-        {!succeeded ? (
+        {!state.succeeded ? (
           <div className="p-8">
             {/* Header */}
             <div className="flex items-center gap-3 mb-2">
@@ -130,7 +78,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
             </p>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={onSubmit} className="space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="demo-navn" className="block text-sm text-zinc-400 mb-1.5">Navn *</label>
@@ -142,6 +90,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="Ola Nordmann"
                   />
+                  <ValidationError prefix="Navn" field="navn" errors={state.errors} className="text-xs text-red-400 mt-1" />
                 </div>
                 <div>
                   <label htmlFor="demo-epost" className="block text-sm text-zinc-400 mb-1.5">E-post *</label>
@@ -153,6 +102,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="ola@bedrift.no"
                   />
+                  <ValidationError prefix="E-post" field="epost" errors={state.errors} className="text-xs text-red-400 mt-1" />
                 </div>
               </div>
 
@@ -167,6 +117,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
                     className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder:text-zinc-600 focus:outline-none focus:border-cyan-500/50 focus:ring-1 focus:ring-cyan-500/50 transition-all"
                     placeholder="Din Bedrift AS"
                   />
+                  <ValidationError prefix="Bedrift" field="bedrift" errors={state.errors} className="text-xs text-red-400 mt-1" />
                 </div>
                 <div>
                   <label htmlFor="demo-telefon" className="block text-sm text-zinc-400 mb-1.5">Telefon</label>
@@ -195,6 +146,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
                   <option value="4" className="bg-[#0f0f14]">4 brukere (Team – 4 290 kr/mnd)</option>
                   <option value="mer" className="bg-[#0f0f14]">Flere enn 4 (Byrå-løsning)</option>
                 </select>
+                <ValidationError prefix="Antall brukere" field="antallBrukere" errors={state.errors} className="text-xs text-red-400 mt-1" />
               </div>
 
               <div>
@@ -210,10 +162,10 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
 
               <button
                 type="submit"
-                disabled={submitting}
+                disabled={state.submitting}
                 className="w-full flex items-center justify-center gap-2 px-6 py-4 bg-cyan-600 hover:bg-cyan-500 disabled:bg-cyan-600/50 text-white font-semibold rounded-xl transition-all hover:shadow-lg hover:shadow-cyan-500/25"
               >
-                {submitting ? (
+                {state.submitting ? (
                   <>
                     <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     Sender...
@@ -227,9 +179,9 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
                 )}
               </button>
 
-              {errors && (
+              {state.errors && (
                 <p className="text-xs text-red-400 text-center">
-                  {errors}
+                  Noe gikk galt. Prøv igjen eller kontakt oss på hei@vikingnet.no
                 </p>
               )}
 
@@ -248,7 +200,7 @@ Firestore ID: ${firestoreResult.success ? firestoreResult.id : 'Lagring feilet'}
               Takk! Vi kontakter deg snart.
             </h3>
             <p className="text-zinc-400 text-sm mb-2">
-              Din forespørsel er mottatt og lagret. Vi ringer eller sender deg en e-post innen 24 timer for å avtale en demo-tid som passer deg.
+              Din forespørsel er sendt. Vi ringer eller sender deg en e-post innen 24 timer for å avtale en demo-tid som passer deg.
             </p>
             <p className="text-zinc-500 text-xs mb-8">
               I mellomtiden: Har du spørsmål? Send en e-post til hei@vikingnet.no
