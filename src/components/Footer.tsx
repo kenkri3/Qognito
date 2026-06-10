@@ -1,7 +1,6 @@
 import { Link } from 'react-router'
 import { Cookie, Phone } from 'lucide-react'
 
-// Whitelabel login URL for Qognito
 const LOGIN_URL = 'https://app.qognito.no'
 
 interface FooterProps {
@@ -12,6 +11,14 @@ export default function Footer({ onContactClick }: FooterProps) {
   const handleReopenConsent = () => {
     localStorage.removeItem('qognito-cookie-consent-v1')
     window.location.reload()
+  }
+
+  // Scroll til seksjon på forsiden (fungerer med HashRouter)
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
@@ -47,24 +54,36 @@ export default function Footer({ onContactClick }: FooterProps) {
             <h4 className="text-sm font-semibold text-white mb-4">Navigasjon</h4>
             <ul className="space-y-2">
               <li>
-                <a href="/#hvordan" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <button
+                  onClick={() => scrollToSection('hvordan')}
+                  className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
                   Hvordan det fungerer
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#funksjoner" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <button
+                  onClick={() => scrollToSection('funksjoner')}
+                  className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
                   Funksjoner
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#prising" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <button
+                  onClick={() => scrollToSection('prising')}
+                  className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
                   Priser
-                </a>
+                </button>
               </li>
               <li>
-                <a href="/#faq" className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+                <button
+                  onClick={() => scrollToSection('faq')}
+                  className="text-sm text-zinc-500 hover:text-zinc-300 transition-colors"
+                >
                   FAQ
-                </a>
+                </button>
               </li>
             </ul>
           </div>
